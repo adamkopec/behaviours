@@ -1,0 +1,9 @@
+payments:
+
+  orp_id	|	itg_id	|	name			|	behaviour
+---------------------------------------------------------------
+	1		|	12		|	przelew			|	banktransfer
+	2		|	15		|	elektroniczna	|	payu
+	3		|	17		|	mtransfer		|	mtransfer
+	4		|	18		|	creditagricole	|	creditagricole
+	5		|	69		|	kredyt kupiecki	|	credit
