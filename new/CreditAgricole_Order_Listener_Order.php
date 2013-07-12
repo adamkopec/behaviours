@@ -21,7 +21,7 @@ class CreditAgricole_Order_Listener_Order implements FooCompany_Event_Listener {
     {
         $order = $this->_getOrder($event);
         $oCA = new creditagricole_Model_CA();
-		$oCA->prepareXml($orderModel->EisOrderProduct,$orderModel);
+		$oCA->prepareXml($order->EisOrderProduct,$order);
 		$oCA->sendRequest();
 		$oCA->saveApplication();
     }

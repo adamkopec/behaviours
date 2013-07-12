@@ -3,7 +3,7 @@ class Basket_IndexController {
 	
 	private function _addOrder($filteredData, $personData) {
 		$payment = $this->_getPayment($filteredData['fk_orp_id']);
-		$payment->init(); //luŸne wi¹zanie np. eventów p³atnoœci
+		$payment->init(); //luï¿½ne wiï¿½zanie np. eventï¿½w pï¿½atnoï¿½ci
 		
 		//...
 		
@@ -28,10 +28,10 @@ class Basket_IndexController {
 	}
 	
 	private function _getPayment($paymentTypeId) {
-		//jak to siê nie podoba, to spróbuj tego: http://www.mwop.net/blog/235-A-Simple-Resource-Injector-for-ZF-Action-Controllers.html
+		//jak to siï¿½ nie podoba, to sprï¿½buj tego: http://www.mwop.net/blog/235-A-Simple-Resource-Injector-for-ZF-Action-Controllers.html
 		$collector = $this->getInvokeArg('bootstrap')->getResource('paymentCollector');
 		
-		$behaviour = DB::getPaymentBehaviour($paymentTypeId); //siakieœ doctrine'owe coœ
+		$behaviour = DB::getPaymentBehaviour($paymentTypeId); //siakieï¿½ doctrine'owe coï¿½
 		
 		if ($collector->isRegistered($behaviour)) {
 			$payment = $collector->getPayment($behaviour);
@@ -42,7 +42,7 @@ class Basket_IndexController {
 	}
 	
 	private function _redirectByPayment(Payment $payment) {
-		if (is_a($payment, 'RedirectingPayment')) {
+        if (is_a($payment, 'RedirectingPayment')) {
 			return $this->_helper->redirector->goToUrl($payment->getRedirectionTarget());
 		} else {
 			return $this->_helper->redirector->goToRoute('standard_summary');
